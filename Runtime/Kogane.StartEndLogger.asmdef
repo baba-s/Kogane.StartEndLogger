@@ -1,0 +1,16 @@
+{
+    "name": "Kogane.StartEndLogger",
+    "rootNamespace": "",
+    "references": [
+        "GUID:b4b215023d439ee4bbb079d05f32e9a1"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": true
+}
