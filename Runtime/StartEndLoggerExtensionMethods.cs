@@ -15,7 +15,7 @@
 #if KOGANE_DISABLE_DEBUG_LOGGER
         [System.Diagnostics.Conditional( CONDITIONAL_STRING )]
 #endif
-        public static void End( this StartEndLogger self, string message )
+        public static void End( this StartEndLogger self, object message )
         {
             self?.EndImpl( message );
         }
