@@ -1,9 +1,12 @@
-﻿namespace Kogane
+﻿using UnityEngine;
+
+namespace Kogane
 {
     public sealed class StartEndLogger
     {
         private readonly IDebugLogger m_logger;
         private readonly object       m_message;
+        private readonly float        m_startTime;
 
         private StartEndLogger( IDebugLogger logger, object message )
         {
@@ -11,16 +14,20 @@
             m_message = message;
 
             m_logger.Log( $"{m_message}開始" );
+
+            m_startTime = Time.realtimeSinceStartup;
         }
 
         internal void EndImpl()
         {
-            m_logger.Log( $"{m_message}終了" );
+            var elapsedTime = Time.realtimeSinceStartup - m_startTime;
+            m_logger.Log( $"{m_message}終了  {elapsedTime:0.00} 秒" );
         }
 
         internal void EndImpl( object message )
         {
-            m_logger.Log( $"{m_message}終了\n{message}" );
+            var elapsedTime = Time.realtimeSinceStartup - m_startTime;
+            m_logger.Log( $"{m_message}終了  {elapsedTime:0.00} 秒\n{message}" );
         }
 
         public static StartEndLogger Start( IDebugLogger logger )
